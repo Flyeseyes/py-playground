@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "py-playground"
+version = "0.1.0"
+description = "CLI greeting demo"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["rich"]
+
+[project.scripts]
+greet = "cli:main"
+
+[tool.setuptools]
+py-modules = ["cli", "greet"]
