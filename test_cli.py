@@ -1,9 +1,11 @@
-import sys
 from cli import main
 
-def test_cli_prints_name(capsys, monkeypatch):
-    # låtsas som att programmet körts så här:  cli.py Natiq
-    monkeypatch.setattr(sys, "argv", ["cli.py", "Natiq"])
-    main()
-    captured = capsys.readouterr()
-    assert captured.out.strip() == "Hej Natiq!"
+
+def test_cli_prints_name(capsys):
+    main(["Natiq"])
+    assert capsys.readouterr().out.strip() == "Hej Natiq!"
+
+
+def test_cli_upper(capsys):
+    main(["Natiq", "--upper"])
+    assert capsys.readouterr().out.strip() == "HEJ NATIQ!"
